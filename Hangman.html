@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--Custom CSS File-->
+    <link rel="stylesheet" href="css/hangman.css">
+
+    <!--Custom JS File-->
+    <script src="js/hangman.js" defer></script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <!--This section will include the hangman image, which will rotate through as guesses are made.-->
+    <div class="row">
+        <div id="hangmanImg" class="col-md-6 col-md-offset-3">
+            <img src="images/Hangman-0.png" alt="Hangman"/>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <!--This section will include the blank spaces to indicate where the letters go.-->
+    <div class="row">
+        <div id="hangWord" class="col-md-6 col-md-offset-3">
+            <!--Write javascript that sticks a space in each one of these slots for each letter of the chosen word.-->
+            <div class="space">A</div>
+            <div class="space">B</div>
+            <div class="space">D</div>
+            <div class="space">D</div>
+            <div class="space">E</div>
+
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
+    <!--This section will include the list of letter-buttons to push in order to guess the word.-->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!--Put alphabet here, with each letter in a separate id, set up like a button. When clicked, change colors.-->
+            <div class="letter" id="A" onclick="sendLetter(this.innerHTML)">A</div>
+            <div class="letter" id="B" onclick="sendLetter(this.innerHTML)">B</div>
+            <div class="letter" id="C" onclick="sendLetter(this.innerHTML)">C</div>
+            <div class="letter" id="D" onclick="sendLetter(this.innerHTML)">D</div>
+            <div class="letter" id="E" onclick="sendLetter(this.innerHTML)">E</div>
+            <div class="letter" id="F" onclick="sendLetter(this.innerHTML)">F</div>
+            <div class="letter" id="G" onclick="sendLetter(this.innerHTML)">G</div>
+            <div class="letter" id="H" onclick="sendLetter(this.innerHTML)">H</div>
+            <div class="letter" id="I" onclick="sendLetter(this.innerHTML)">I</div>
+            <div class="letter" id="J" onclick="sendLetter(this.innerHTML)">J</div>
+            <div class="letter" id="K" onclick="sendLetter(this.innerHTML)">K</div>
+            <div class="letter" id="L" onclick="sendLetter(this.innerHTML)">L</div>
+            <div class="letter" id="M" onclick="sendLetter(this.innerHTML)">M</div>
+            <div class="letter" id="N" onclick="sendLetter(this.innerHTML)">N</div>
+            <div class="letter" id="O" onclick="sendLetter(this.innerHTML)">O</div>
+            <div class="letter" id="P" onclick="sendLetter(this.innerHTML)">P</div>
+            <div class="letter" id="Q" onclick="sendLetter(this.innerHTML)">Q</div>
+            <div class="letter" id="R" onclick="sendLetter(this.innerHTML)">R</div>
+            <div class="letter" id="S" onclick="sendLetter(this.innerHTML)">S</div>
+            <div class="letter" id="T" onclick="sendLetter(this.innerHTML)">T</div>
+            <div class="letter" id="U" onclick="sendLetter(this.innerHTML)">U</div>
+            <div class="letter" id="V" onclick="sendLetter(this.innerHTML)">V</div>
+            <div class="letter" id="W" onclick="sendLetter(this.innerHTML)">W</div>
+            <div class="letter" id="X" onclick="sendLetter(this.innerHTML)">X</div>
+            <div class="letter" id="Y" onclick="sendLetter(this.innerHTML)">Y</div>
+            <div class="letter" id="Z" onclick="sendLetter(this.innerHTML)">Z</div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
