@@ -1,7 +1,7 @@
 /**
  * Created by Brandon on 10/18/2015.
  */
-var words = ["Word","liar","Terrible"];
+var words = ["headquarters","recognize","handkerchief","appointment","furniture","magazine","pretended","wonderful","measured","fourth"];
 var word = "";
 var wrong = 0;
 var guesses = 6;
