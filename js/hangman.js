@@ -7,6 +7,10 @@ var wrong = 0;
 var guesses = 6;
 var right = 0;
 var guessed = [];
+var win = new Audio('audio/cheer.wav');
+var correct = new Audio('audio/correct.mp3');
+var wrongLetter = new Audio('audio/wrong.wav');
+var loser = new Audio('audio/loser.wav');
 
 //Function to select the word from the array.
 function myWord () {
@@ -41,8 +45,10 @@ function sendLetter(theletter) {
     //Check if the letter is in the word. Change the letter to lowercase.
     if (word.search(theletter.toLowerCase()) == -1) {
         //if the letter isn't a match, this is what happens.
+        wrongLetter.play();
         noMatch();
     } else {
+        correct.play();
         match(theletter);
     }
 }
@@ -54,7 +60,8 @@ function noMatch() {
     document.getElementById("hangmanImg").innerHTML = "<img src='images/Hangman-"+wrong+".png'/>";
     //If you've run out of guesses, you lose. Game then resets.
     if (wrong == guesses) {
-        alert("Poor guy got hung! You lose! The word was: "+word);
+        loser.play();
+        alert("Poor guy got hung! You lose! The word was: "+word+". Spell this three times, then click OK!");
         location.reload();
     }
 }
@@ -70,6 +77,7 @@ function match(ltr){
     }
     //Need logic to tell us if the word has been guessed correctly.
     if (right == word.length) {
+        win.play();
         alert("HOORAY! YOU WIN! Please spell the word out loud three times, then click OK.");
         location.reload();
     }
