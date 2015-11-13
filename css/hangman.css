@@ -34,3 +34,11 @@
     width: 300px;
     height: 300px;
 }
+
+.hangWord {
+    display: inline-block;
+}
+
+.container {
+    text-align: center;
+}
