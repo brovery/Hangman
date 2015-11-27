@@ -27,29 +27,41 @@
 
 
 <div class="container">
-
-    <!--This section will include the hangman image, which will rotate through as guesses are made.-->
-    <div class="row">
-        <div id="hangmanImg" class="col-md-6 col-md-offset-3">
-            <img src="images/Hangman-0.png" alt="Hangman"/>
+    <!--Spelling section-->
+    <div id="spelling">
+        <!--Have an Audio button play - connect from dictionary api.-->
+        <div class="row">
+            <button class="btn btn-success" type="button" onclick="playMe()">Play Audio</button>
         </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
+
+    <!--Hangman section-->
+    <div id="hangman">
+        <!--This section will include the hangman image, which will rotate through as guesses are made.-->
+        <div class="row">
+            <div id="hangmanImg" class="col-md-6 col-md-offset-3">
+                <img src="images/Hangman-0.png" alt="Hangman"/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+    </div>
     <!--This section will include the blank spaces to indicate where the letters go.-->
     <div class="row">
-        <div id="hangWord" class="col-md-12">
-            <!--Write javascript that sticks a space in each one of these slots for each letter of the chosen word.-->
-
+        <div class="col-md-12">
+            <div id="hangWord">
+                <!--Write javascript that sticks a space in each one of these slots for each letter of the chosen word.-->
+            </div>
         </div>
     </div>
+
     <br/>
     <br/>
     <br/>
 
     <!--This section will include the list of letter-buttons to push in order to guess the word.-->
-    <div class="row">
+    <div class="row" id="alphabet">
         <div class="col-md-10 col-md-offset-1">
             <!--Put alphabet here, with each letter in a separate id, set up like a button. When clicked, change colors.-->
             <div class="letter" id="A" onclick="sendLetter(this.innerHTML)">A</div>
@@ -82,8 +94,8 @@
         </div>
     </div>
 
-</div>
 
+</div>
 
 
 </body>

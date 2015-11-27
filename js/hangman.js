@@ -1,32 +1,70 @@
 /**
  * Created by Brandon on 10/18/2015.
  */
-var words = ["library","expensive","divided","transportation","famous","camera"];
-var word = "";
-var wrong = 0;
-var guesses = 6;
-var right = 0;
-var guessed = [];
-var win = new Audio('audio/cheer.wav');
-var correct = new Audio('audio/correct.mp3');
-var wrongLetter = new Audio('audio/wrong.wav');
-var loser = new Audio('audio/loser.wav');
+var words = ["library","expensive","divided","transportation","famous","camera"],
+    word = "",
+    curWord = 0;
+    wrong = 0,
+    guesses = 6,
+    model = "",
+    right = 0,
+    guessed = [],
+    win = new Audio('audio/cheer.wav'),
+    correct = new Audio('audio/correct.mp3'),
+    wrongLetter = new Audio('audio/wrong.wav'),
+    loser = new Audio('audio/loser.wav'),
+    apiKey = "30816388-5db8-4a98-8881-34c5d30fe277",
+    apiRequest = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/",
+    myApiRequest = "",
+    gameStates = {
+        Spelling: 0,
+        Hangman: 1
+    };
+    var curState = gameStates.Spelling;
 
 //Function to select the word from the array.
 function myWord () {
-    word = words[Math.floor(Math.random()*words.length)];
+    //This is the old code to randomly select the word.
+    //word = words[Math.floor(Math.random()*words.length)];
+
+    //This is the new code, which will rotate through the current words.
+    word = words[curWord];
     word = word.toLowerCase();
+    myApiRequest = apiRequest + word + "?key=" + apiKey;
     spaceBuilder();
 }
 
 //function to build the word-spaces.
 function spaceBuilder() {
     var myDiv = "";
+    var len = (word.length*70); //Set the width necessary for the word length.
+    var lMarg = (1140-len)/2; //Set the left margin such that the word is centered.
+    len += "px";
+
     //Need to build the divs that go into the word space. Class will be space for styling & the lower-case letter.
     for (var i = 0; i<word.length; i++) {
         myDiv += "<div class='" + word[i] + " space'></div>";
     }
     document.getElementById("hangWord").innerHTML = myDiv;
+    $("#hangWord").css("width", len).css("margin-left", lMarg);
+}
+
+//TODO: Add a function that adds an audio file that plays when the "Play" button is pressed.
+function playMe() {
+    getAudio();
+}
+
+
+//pulls the audio file from the dictionary api
+function getAudio() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            model = JSON.parse(xhttp.responseText);
+        }
+    };
+    xhttp.open("GET", myApiRequest, true);
+    xhttp.send();
 }
 
 //Function that accepts a letter from a button on the page.
@@ -39,8 +77,6 @@ function sendLetter(theletter) {
         alert("You already guessed that letter! Try again!");
         return;
     }
-
-
 
     //Check if the letter is in the word. Change the letter to lowercase.
     if (word.search(theletter.toLowerCase()) == -1) {
