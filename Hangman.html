@@ -28,10 +28,16 @@
 
 <div class="container">
     <!--Spelling section-->
-    <div id="spelling">
+    <div class="row">
         <!--Have an Audio button play - connect from dictionary api.-->
-        <div class="row">
+        <div class="col-md-12" id="spelling">
             <button class="btn btn-success" type="button" onclick="playMe()">Play Audio</button>
+            <div class="form-group spellCont">
+                <label for="spelledWord">Word</label>
+                <input type="text" id="spelledWord" placeholder="Type the word">
+                <button id="wordSub" class="btn btn-primary" onclick="spellCheck()">Submit</button>
+            </div>
+
         </div>
     </div>
 
