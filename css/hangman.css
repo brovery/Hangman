@@ -50,3 +50,7 @@
 #alphabet {
     display: none;
 }
+
+#nextWord {
+    display: none;
+}
