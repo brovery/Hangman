@@ -19,6 +19,8 @@ var words = ["library","expensive","divided","transportation","famous","camera"]
 function nextWord() {
     wordCount++;
     spellCount = 0;
+    clearGuessed();
+    guessed = [];
     currentWord = new Speech(words[wordCount]);
     word = words[wordCount];
     $('#nextWord').hide();
@@ -26,8 +28,13 @@ function nextWord() {
     $('#hangman').hide();
     $('#hangWord').hide();
     $('.spellCont').show();
+}
 
-
+function clearGuessed() {
+    for (var i = 0; i < guessed.length; i++) {
+        var l = guessed[i];
+        document.getElementById(l).style.removeProperty("background-color");
+    }
 }
 
 function playMe() {
@@ -59,8 +66,10 @@ function spellCheck() {
 
     if (spellCount == 3) {
         spaceBuilder();
+        $('#spelledWord').val("");
         $('.spellCont').hide();
         $('#hangman').show();
+        $('#hangWord').show();
         $('#alphabet').show();
     } else {
         var tryAgain = new Speech("Try Again!");
@@ -81,7 +90,7 @@ function spaceBuilder() {
     for (var i = 0; i<word.length; i++) {
         myDiv += "<div class='" + word[i] + " space'></div>";
     }
-    $("#hangWord").html(myDiv).css("width", len).css("margin-left", lMarg);
+    $("#hangWord").html("").html(myDiv).css("width", len).css("margin-left", lMarg);
 }
 
 //Function that accepts a letter from a button on the page.
