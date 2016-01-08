@@ -20,6 +20,7 @@ function nextWord() {
     wordCount++;
     spellCount = 0;
     right = 0;
+    wrong = 0;
     clearGuessed();
     guessed = [];
     currentWord = new Speech(words[wordCount]);
