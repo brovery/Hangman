@@ -18,6 +18,7 @@ var words = ["library","expensive","divided","transportation","famous","camera"]
 
 function nextWord() {
     wordCount++;
+    document.getElementById("hangmanImg").innerHTML = "<img src='images/Hangman-0.png'/>";
     spellCount = 0;
     right = 0;
     wrong = 0;
