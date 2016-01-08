@@ -19,6 +19,7 @@ var words = ["library","expensive","divided","transportation","famous","camera"]
 function nextWord() {
     wordCount++;
     spellCount = 0;
+    right = 0;
     clearGuessed();
     guessed = [];
     currentWord = new Speech(words[wordCount]);
